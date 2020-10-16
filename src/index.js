@@ -2,6 +2,7 @@ import '../css/reset.css';
 import '../css/style.css';
 import MyImage from '../assets/images/image.svg'
 import printMe from './print';
+import './another-module';
 
 function component() {
     const element = document.createElement('div');

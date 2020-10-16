@@ -7,9 +7,9 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
     // entry: './src/index.js',
     entry: {
-        app: './src/index.js',
-        vendor: './src/vendor.js',
-        printy: './src/print.js'
+        index: { import: './src/index.js', dependOn: 'shared' },
+        another: { import: './src/another-module.js', dependOn: 'shared' },
+        shared: 'lodash'
     },
     watch: true,
     mode: 'development',
@@ -20,7 +20,7 @@ module.exports = {
     output: {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist'),
-        publicPath: '/'
+        publicPath: './'
     },
     plugins: [
         new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
@@ -34,6 +34,11 @@ module.exports = {
             template: path.resolve(__dirname, 'public/index.html')
         })
     ],
+    optimization: {
+        splitChunks: {
+            chunks: 'all'
+        }
+    },
     module: {
         rules: [
             {
