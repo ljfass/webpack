@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'MyFont';
+    src:  url('../assets/fonts/fa-regular-400.woff2') format('woff2'),
+          url('../assets/fonts/fa-regular-400.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+  }
+  body {
+      font-family: 'MyFont';
+  }
