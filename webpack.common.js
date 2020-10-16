@@ -13,13 +13,17 @@ module.exports = {
     },
     watch: true,
     mode: 'development',
+    devServer: {
+        contentBase: './dist' // tell the dev server where to look for files
+    },
     devtool: 'inline-source-map', // for track down javascript errors and warnings
     output: {
         filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
+        publicPath: '/'
     },
     plugins: [
-        new CleanWebpackPlugin(),
+        new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
         new MiniCssExtractPlugin({
             filename: '[id].css',
             chunkFilename: '[id].css'
