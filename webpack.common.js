@@ -59,7 +59,14 @@ module.exports = {
             },
             {
                 test: /\.(png|svg|jpg|gif)$/,
-                use: ['file-loader']
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        esModule: false,
+                        name: '[name].[hash].[ext]',
+                        publicPath: 'imgs'
+                    }
+                }
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,
@@ -72,6 +79,10 @@ module.exports = {
             {
                 test: /\.xml$/,
                 use: ['xml-loader']
+            },
+            {
+                test: /\.html$/,
+                use: ['html-loader']
             }
         ]
     }
