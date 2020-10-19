@@ -1,5 +1,4 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
@@ -9,22 +8,12 @@ module.exports = {
         vendor: './src/vendor.js'
     },
     watch: true,
-    mode: 'development',
     devServer: {
         contentBase: './dist' // tell the dev server where to look for files
     },
     devtool: 'inline-source-map', // for track down javascript errors and warnings
-    output: {
-        filename: '[name].bundle.js',
-        path: path.resolve(__dirname, 'dist'),
-        publicPath: './'
-    },
     plugins: [
-        new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
-        new HtmlWebpackPlugin({
-            inject: true,
-            template: path.resolve(__dirname, 'public/index.html')
-        })
+        new CleanWebpackPlugin({ cleanStaleWebpackAssets: false })
     ],
     optimization: {
         splitChunks: {
@@ -33,10 +22,6 @@ module.exports = {
     },
     module: {
         rules: [
-            {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader']
-            },
             {
                 test: /\.m?js$/,
                 exclude: /(node_modules)/,
@@ -58,9 +43,9 @@ module.exports = {
                 use: {
                     loader: 'file-loader',
                     options: {
-                        esModule: false,
                         name: '[path].[hash].[ext]',
-                        outputPath: 'assets'
+                        outputPath: 'assets',
+                        publicPath: '/'
                     }
                 }
             },

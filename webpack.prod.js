@@ -8,8 +8,9 @@ const path = require('path');
 module.exports = merge(common, {
     mode: 'production',
     output: {
-        filename: '[name].[hash].bundle.js',
-        path: path.resolve(__dirname, 'dist')
+        filename: '[name].[contentHash].bundle.js',
+        path: path.resolve(__dirname, 'dist'),
+        publicPath: '/' // Automatic publicPath is not supported in this browser
     },
     plugins: [
         new MiniCssExtractPlugin({
