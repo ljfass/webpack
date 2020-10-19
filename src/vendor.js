@@ -1,1 +1,2 @@
-export const $ = require('jquery');
+// export const $ = require('jquery');
+import 'jquery';

@@ -1,15 +1,12 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     // entry: './src/index.js',
     entry: {
-        index: { import: './src/index.js', dependOn: 'shared' },
-        another: { import: './src/another-module.js', dependOn: 'shared' },
-        shared: 'lodash'
+        index: './src/index.js',
+        vendor: './src/vendor.js'
     },
     watch: true,
     mode: 'development',
@@ -24,11 +21,6 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
-        new MiniCssExtractPlugin({
-            filename: '[id].css',
-            chunkFilename: '[id].css'
-        }),
-        new OptimizeCssAssetsPlugin(),
         new HtmlWebpackPlugin({
             inject: true,
             template: path.resolve(__dirname, 'public/index.html')
