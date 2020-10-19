@@ -1,6 +1,6 @@
 import '../css/reset.css';
 import '../css/style.css';
-import MyImage from '../assets/images/image.svg'
+// import MyImage from '../assets/images/my.svg'
 import printMe from './print';
 import './another-module';
 
@@ -15,7 +15,7 @@ function component() {
 
    // Add the image to our existing div.
    const myImage = new Image();
-   myImage.src = MyImage;
+  //  myImage.src = MyImage;
 
    element.appendChild(btn);
 

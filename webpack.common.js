@@ -58,13 +58,17 @@ module.exports = {
                 ]
             },
             {
+                test: /\.html$/,
+                use: ['html-loader']
+            },
+            {
                 test: /\.(png|svg|jpg|gif)$/,
                 use: {
                     loader: 'file-loader',
                     options: {
                         esModule: false,
-                        name: '[name].[hash].[ext]',
-                        publicPath: 'imgs'
+                        name: '[path].[hash].[ext]',
+                        outputPath: 'assets'
                     }
                 }
             },
@@ -80,10 +84,6 @@ module.exports = {
                 test: /\.xml$/,
                 use: ['xml-loader']
             },
-            {
-                test: /\.html$/,
-                use: ['html-loader']
-            }
         ]
     }
 }
