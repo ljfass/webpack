@@ -15,11 +15,6 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin({ cleanStaleWebpackAssets: false })
     ],
-    optimization: {
-        splitChunks: {
-            chunks: 'all'
-        }
-    },
     module: {
         rules: [
             {
@@ -44,8 +39,7 @@ module.exports = {
                     loader: 'file-loader',
                     options: {
                         name: '[path].[hash].[ext]',
-                        outputPath: 'assets',
-                        publicPath: '/'
+                        outputPath: 'images'
                     }
                 }
             },

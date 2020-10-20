@@ -8,12 +8,12 @@ module.exports = merge(common, {
     output: {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist'),
-        publicPath: '/'
+        publicPath: './'
     },
     plugins: [
         new HtmlWebpackPlugin({
             inject: true,
-            template: path.resolve(__dirname, './public/index.html')
+            template: path.resolve(__dirname, './src/template.html')
         }) 
     ],
     module: {
