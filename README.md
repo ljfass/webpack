@@ -9,3 +9,6 @@
 # 版本
 ## npx webpack -v
 ## npm info wbepack
+
+# webapck-cli
+## 作用：可以在命令行运行webpack命令并且生效。
