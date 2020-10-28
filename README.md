@@ -20,3 +20,8 @@
 ### 区别：
 #### path是webpack所有文件的输出的路径，必须是绝对路径，比如：output输出的js,url-loader解析的图片，HtmlWebpackPlugin生成的html文件，都会存放在以path为基础的目录下.
 #### publicPath 并不会对生成文件的路径造成影响，主要是对你的页面里面引入的资源的路径做对应的补全，常见的就是css文件里面引入的图片.
+
+# node中的路径
+## __dirname: 总是返回被执行的js所在文件夹的绝对路径
+## __filename: 总是返回被执行的js的绝对路径
+## process.cwd(): 总是返回运行node命令时所在的文件夹的绝对路径
